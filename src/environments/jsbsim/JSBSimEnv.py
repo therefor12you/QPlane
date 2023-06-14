@@ -31,12 +31,12 @@ class Env():
             np.random.seed(42)
 
         os.environ["JSBSIM_DEBUG"] = str(0)  # set this before creating fdm to stop debug print outs
-        self.fdm = jsbsim.FGFDMExec('./src/environments/jsbsim/jsbsim/', None)  # declaring the sim and setting the path
+        self.fdm = jsbsim.FGFDMExec('d:/LZP_HP/yanjiusheng/TX/DoD/JSBSim/JSBSim', None)  # declaring the sim and setting the path
         self.physicsPerSec = int(1 / self.fdm.get_delta_t())  # default by jsb. Each physics step is a 120th of 1 sec
         self.realTimeDelay = self.fdm.get_delta_t()
-        self.fdm.load_model('c172r')  # loading cassna 172
+        self.fdm.load_model('f15')  # loading cassna 172 or f16 or...
         if render:  # only when render is True
-            # Open Flight gear and enter: --fdm=null --native-fdm=socket,in,60,localhost,5550,udp --aircraft=c172r --airport=RKJJ
+            # Open Flight gear and enter: --fdm=null --native-fdm=socket,in,60,localhost,5550,udp --aircraft=c172p --airport=RKJJ
             self.fdm.set_output_directive('./data_output/flightgear.xml')  # loads xml that initates udp transfer
         self.fdm.run_ic()  # init the sim
         self.fdm.print_simulation_configuration()

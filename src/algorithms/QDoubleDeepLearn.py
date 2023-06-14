@@ -3,9 +3,11 @@ import random
 import os
 import pickle
 import tensorflow as tf
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Flatten, InputLayer
-from tensorflow.keras.optimizers import Adam
+
+from tensorflow import keras
+from keras.optimizers import Adam
+from keras.layers import Dense, Flatten, InputLayer
+from keras.models import Sequential, load_model
 from collections import deque
 
 
@@ -109,9 +111,9 @@ class DQNAgent:
         # The model used for training at every step
         self.model = self.createModel()
 
-        if(self.loadModel):
-            self.model = tf.keras.models.load_model("model.h5")
-            print("\nModel Loaded!\n")
+        # if(self.loadModel):
+        #     self.model = tf.keras.models.load_model("model.h5")
+        #     print("\nModel Loaded!\n")
         # Target network uesed for predicting, not updated every step
         self.targetModel = self.createModel()
         self.targetModel.set_weights(self.model.get_weights())
