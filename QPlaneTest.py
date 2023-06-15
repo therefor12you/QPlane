@@ -95,7 +95,8 @@ dictRotation = {
     "verticalVelo": 5}
 
 # -998->NO CHANGE
-flightOrigin = [35.126, 126.809, 14_000, 0, 0, 0, 1]  # Gwangju SK
+# flightOrigin = [35.126, 126.809, 14000, 0, 0, 0, 1]  # Gwangju SK
+flightOrigin = [35.126, 126.809, 8000, 0, 0, 0, 1]  # Gwangju SK
 flightDestinaion = [33.508, 126.487, 6000, -998, -998, -998, 1]  # Jeju SK
 #  Other locations to use: Memmingen: [47.988, 10.240], Chicago: [41.976, -87.902]
 
